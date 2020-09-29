@@ -1,0 +1,11 @@
+<h1>All Events </h1>
+<% @events.each do |event|%>
+<%=link_to event.title, event_path(event)%> - <%=event.time_format%>
+<%end%>
+
+<br>
+<br>
+<br>
+<hr>
+<%=link_to "Register an Event", new_event_path%>
+

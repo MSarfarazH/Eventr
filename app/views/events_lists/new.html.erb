@@ -1,0 +1,11 @@
+<%=form_with model: @el do |f|%>
+<%= f.label "Who are you?"%>
+<%=f.collection_select :user_id, @users, :id, :name%>
+<br>
+<br>
+<%= f.label "What Event?"%>
+<%=f.collection_select :event_id, @events, :id, :title%>
+<br>
+<br>
+<%= f.submit 'RSVP'%>
+<%end%>

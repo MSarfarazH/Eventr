@@ -1,4 +1,5 @@
-<h1><%=@user.name%>'s Profile</h1>
+<h1 style="color:red"><%=flash[:errors]%></h1>
+<h2><%=@user.name%>'s Profile</h2>
 
 <hr>
 <ul>
@@ -6,5 +7,23 @@
     <li>Age: <%= @user.age %></li>    
     <li>Bio: <%= @user.bio %></li>    
 </ul>
-<h2>Events List:</h2> 
-<ul>
+<h2>Upcoming Events:</h2> 
+<%@user.events.each do |event|%>
+<%=link_to event.title, event_path(event)%> - <%=event.time_format%>
+<%end%>
+<br>
+<h2>Past Events:</h2> 
+<br>
+<h2>Friends List:</h2> 
+<%@user.friends.each do |f|%>
+<%=link_to f.name, user_path(f)%><br>
+<%end%>
+<br>
+<br>
+
+
+<%= link_to 'Add Friend', new_friends_list_path%>
+<hr>
+<%= link_to 'Edit Information', edit_user_path(@user) %><br>
+<hr>
+<%= link_to 'See All Events', events_path%><br>

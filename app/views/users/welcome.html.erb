@@ -1,0 +1,10 @@
+<h1> Welcome to Eventr! </h1>
+
+link to sign in
+<br>
+link to sign up
+
+<h3>Upcoming Events</h3>
+<% @events.each do |event|%>
+<%=link_to event.title, event_path(event)%> - <%=event.time_format%>
+<%end%>
