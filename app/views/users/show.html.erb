@@ -8,11 +8,16 @@
     <li>Bio: <%= @user.bio %></li>    
 </ul>
 <h2>Upcoming Events:</h2> 
-<%@user.events.each do |event|%>
-<%=link_to event.title, event_path(event)%> - <%=event.time_format%>
+<%@user.events.future_events.each do |event|%>
+<%=link_to event.title, event_path(event)%> - <%=event.time_format%><br>
 <%end%>
+
 <br>
 <h2>Past Events:</h2> 
+<%@user.events.past_events.each do |event|%>
+<%=link_to event.title, event_path(event)%> -  <%=event.time_format_2%><br>
+<%end%>
+
 <br>
 <h2>Friends List:</h2> 
 <%@user.friends.each do |f|%>

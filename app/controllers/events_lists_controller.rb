@@ -7,8 +7,14 @@ class EventsListsController < ApplicationController
     end
 
     def create
-        el_new = EventsList.create(el_params)
-        redirect_to user_path(el_new.user_id)
+        el_new = EventsList.new(el_params)
+        if !el_new.valid?
+            flash[:errors] = "You are already RSVP'd for this event"
+            redirect_to event_path(el_params[:event_id])
+        else
+            el_new.save
+            redirect_to user_path(el_new.user_id)
+        end
     end
 
     private

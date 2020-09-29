@@ -10,3 +10,5 @@ mohammad = User.create(name:"Mohammad", age:25, bio:"Hello der")
 mike = User.create(name: "Mike", age: 29, bio: "Learning to code, one day at a time")
 john = User.create(name: "John", age: 20, bio: "Test test test test")
 
+
+
