@@ -1,0 +1,22 @@
+<h1><%=@event.title%></h1>
+<hr>
+<p><%=@event.time_format%>
+<br>
+<br>
+<br>
+<h2>About</h2>
+<hr>
+<%=@event.details%></p>
+<br>
+<br>
+<br>
+<h3>People Attending</h3>
+<% @event.users.each do |user|%>
+<%= link_to user.name, user_path(user)%><br>
+<%end%>
+<br>
+<br>
+<br>
+<%=link_to "RSVP", new_events_list_path%>
+<hr>
+<%= link_to 'See All Events', events_path%><br>

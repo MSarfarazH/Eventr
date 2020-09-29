@@ -1,0 +1,14 @@
+<%=form_with model: @friend_new do |f|%>
+<%= f.label "Who are you?"%>
+<%=f.collection_select :user_id, @users, :id, :name%>
+<br>
+<br>
+<%= f.label "Name friend:"%>
+<%=f.collection_select :user_id_2, @users, :id, :name%>
+<br>
+<br>
+<%= f.submit 'Add Friend'%>
+<%end%>
+
+<%=flash[:errors]%>
+
