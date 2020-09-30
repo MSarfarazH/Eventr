@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    before_action :authenticated?, only: [:index, :show]
 
     def index
         @users = User.all
@@ -19,7 +20,7 @@ class UsersController < ApplicationController
             redirect_to new_user_path
         else
             new_user.save
-            redirect_to user_path(new_user)
+            redirect_to sign_in_path
         end
     end
 
@@ -45,7 +46,15 @@ class UsersController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:name, :age, :bio)
+        params.require(:user).permit(:name, :age, :bio, :username, :password)
+    end
+
+    def authenticated?
+        if session[:id] != nil
+            @user = User.find(session[:id])
+        else
+            redirect to '/sign_in'
+        end
     end
 
 end

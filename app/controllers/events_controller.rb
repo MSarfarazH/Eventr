@@ -6,6 +6,7 @@ class EventsController < ApplicationController
 
     def show
         @event = Event.find(params[:id])
+        session[:event] = @event.id
     end
 
     def new
