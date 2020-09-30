@@ -2,6 +2,8 @@
 
 <h1><%=@event.title%></h1>
 <hr>
+<%= link_to image_tag(@event.img_url, :size => '300x200')%>
+<hr>
 <p><%=@event.time_format%>
 <br>
 <br>
@@ -14,7 +16,7 @@
 <br>
 <h3>People Attending</h3>
 <% @event.users.each do |user|%>
-<%= link_to user.name, user_path(user)%><br>
+<%= link_to user.username, user_path(user)%><br>
 <%end%>
 <br>
 <br>
@@ -25,7 +27,6 @@
 <br>
 <br>
 <hr>
-<%= button_to 'log out', {:controller => :sessions, :action => 'destroy'}, :method => :delete%>
 <hr>
 Logged In As: <%=link_to session[:username], user_path(session[:id])%> 
 <br>

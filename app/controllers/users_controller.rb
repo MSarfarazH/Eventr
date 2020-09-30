@@ -2,7 +2,7 @@ class UsersController < ApplicationController
     before_action :authenticated?, only: [:index, :show]
 
     def index
-        @users = User.all
+        @users = User.all.sort_by{|user|user.username}
     end
 
     def show
@@ -46,14 +46,14 @@ class UsersController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:name, :age, :bio, :username, :password)
+        params.require(:user).permit(:first_name, :last_name, :age, :bio, :username, :password)
     end
 
     def authenticated?
         if session[:id] != nil
             @user = User.find(session[:id])
         else
-            redirect to '/sign_in'
+            redirect_to '/sign_in'
         end
     end
 

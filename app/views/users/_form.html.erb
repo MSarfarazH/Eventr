@@ -3,8 +3,12 @@
 <%=f.text_field :username%>
 <br>
 <br>
-<%=f.label :name%><br>
-<%=f.text_field :name%>
+<%=f.label :first_name%><br>
+<%=f.text_field :first_name%>
+<br>
+<br>
+<%=f.label :last_name%><br>
+<%=f.text_field :last_name%>
 <br>
 <br>
 <%=f.label :age%><br>
@@ -16,10 +20,10 @@
 <br>
 <br>
 <%= f.label :password %>
-<%= f.text_field :password %>
+<%= f.password_field :password %>
 <br/>
 <%= f.label :password_confirmation %>
-<%= f.text_field :password_confirmation %>
+<%= f.password_field :password_confirmation %>
 <%=f.submit%>
 <%end%>
 

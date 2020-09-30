@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2020_09_28_190408) do
     t.string "title"
     t.datetime "time"
     t.string "details"
+    t.string "img_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -43,7 +44,8 @@ ActiveRecord::Schema.define(version: 2020_09_28_190408) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "first_name"
+    t.string "last_name"
     t.integer "age"
     t.string "interest"
     t.string "bio"

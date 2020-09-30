@@ -1,12 +1,12 @@
 <h2>Upcoming Events:</h2> 
 <%@events.future_events.each do |event|%>
-<%=link_to event.title, event_path(event)%> - <%=event.time_format%><br>
+<%=link_to event.title, event_path(event)%> - <%=event.time_format%><br><br>
 <%end%>
 
 <br>
 <h2>Past Events:</h2> 
 <%@events.past_events.each do |event|%>
-<%=link_to event.title, event_path(event)%> - <%=event.time_format_2%><br>
+<%=link_to event.title, event_path(event)%> - <%=event.time_format_2%><br><br>
 <%end%>
 
 <br>
@@ -16,8 +16,6 @@
 <%=link_to "Register an Event", new_event_path%>
 <br>
 <br>
-<hr>
-<%= button_to 'log out', {:controller => :sessions, :action => 'destroy'}, :method => :delete%>
 <hr>
  Logged In As: <%=link_to session[:username], user_path(session[:id])%> 
 <br>

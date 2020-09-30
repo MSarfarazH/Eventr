@@ -6,7 +6,6 @@ class FriendsListsController < ApplicationController
     end
 
     def create
-
         @friend_new = FriendsList.new(user_id: session[:id], user_id_2: fl_params[:user_id_2])
         @friend_new2 = FriendsList.new(user_id: fl_params[:user_id_2], user_id_2: session[:id])
         if !@friend_new.valid? && !@friend_new2.valid?

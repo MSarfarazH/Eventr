@@ -12,7 +12,7 @@ class User < ApplicationRecord
       join_table: "chat",
       association_foreign_key: "user_id_2"
 
-    validates(:name, :age, :bio, :username, :password, {presence: true})
+    validates(:first_name, :last_name, :age, :bio, :username, :password, {presence: true})
     validates :bio, length: { in: 1..140 }
     validates :username, uniqueness: true
 
