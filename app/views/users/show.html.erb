@@ -1,16 +1,32 @@
 <h1 style="color:red"><%=flash[:errors]%></h1>
+
 <h2><%=@user.username%>'s Profile</h2>
 
+<%= link_to image_tag(@user.img_url, :size => '250x250')%>
 <hr>
+
 <ul>
    <li>Name: <%= @user.first_name %> <%= @user.last_name %></li>
     <li>Age: <%= @user.age %></li>    
     <li>Bio: <%= @user.bio %></li>    
 </ul>
+<% if session[:id] != @user.id %>
+<%= link_to 'Add Friend', new_friends_list_path%>
+<hr>
+<%else%>
+<%= link_to 'Edit Information', edit_user_path(@user) %><br>
+<hr>
+<%end%>
 <h2>Upcoming Events:</h2> 
-<%= link_to 'See All Events', events_path%><br>
+
+<%= link_to 'See All Events', events_path%>
+<br>
+<br>
 <%@user.events.future_events.each do |event|%>
-<%=link_to event.title, event_path(event)%> - <%=event.time_format%><br>
+<%= link_to image_tag(event.img_url, :size => '150x100')%><br>
+<%=link_to event.title, event_path(event)%><br>
+<%=event.time_format%><br>
+<hr>
 <%end%>
 
 <br>
@@ -20,22 +36,12 @@
 <%end%>
 
 <br>
-<h2>Friends List:</h2> 
-<%@user.friends.each do |f|%>
-<%=link_to f.username, user_path(f)%><br>
-<%end%>
-<br>
-<br>
+<h2><%= link_to 'See Friends', '/users/see/friends'%></h2> 
 
 
-<%= link_to 'Add Friend', new_friends_list_path%>
-<hr>
-<%= link_to 'Edit Information', edit_user_path(@user) %><br>
-<hr>
 
 <br>
 <br>
-<hr>
 
 
 Logged In As: <%=link_to session[:username], user_path(session[:id])%> 

@@ -1,0 +1,19 @@
+<h1><%= @user.first_last_i%></h1>
+<hr>
+<%= link_to 'See All Events', events_path%><br>
+<br>
+
+<%@user.friends.each do |f|%>
+<%=link_to f.username, user_path(f)%> - <%=f.first_last_i%><br>
+<%end%>
+<br>
+<br>
+
+
+<br>
+<br>
+
+
+Logged In As: <%=link_to session[:username], user_path(session[:id])%> 
+<br>
+<%= button_to 'log out', {:controller => :sessions, :action => 'destroy'}, :method => :delete%>

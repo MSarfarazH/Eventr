@@ -9,7 +9,7 @@ class User < ApplicationRecord
       association_foreign_key: "user_id_2"
     has_and_belongs_to_many :chats,
       class_name: "User",
-      join_table: "chat",
+      join_table: "chats",
       association_foreign_key: "user_id_2"
 
     validates(:first_name, :last_name, :age, :bio, :username, :password, {presence: true})
@@ -17,7 +17,16 @@ class User < ApplicationRecord
     validates :username, uniqueness: true
 
 
+    def last_initial
+      array = self.last_name
+      array.split
+      x = array[0]
+      x.capitalize
+    end
 
+    def first_last_i
+      self.first_name + " "+ self.last_initial+ "."
+    end
 
 
 

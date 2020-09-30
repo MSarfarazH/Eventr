@@ -1,11 +1,5 @@
 
 <%=form_with model: @friend_new do |f|%>
-<br>
-<br> 
-<%= f.label "Name friend:"%>
-<%=f.collection_select :user_id_2, @users, :id, :username, prompt: true%>
-<br>
-<br>
 <%= f.submit 'Add Friend'%>
 <%end%>
 

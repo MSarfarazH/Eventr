@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2020_09_28_190408) do
     t.string "username"
     t.string "password_digest"
     t.integer "friend_id"
+    t.string "img_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["friend_id"], name: "index_users_on_friend_id"
