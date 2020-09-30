@@ -22,3 +22,11 @@
 <%=link_to "RSVP", new_events_list_path%>
 <hr>
 <%= link_to 'See All Events', events_path%><br>
+<br>
+<br>
+<hr>
+<%= button_to 'log out', {:controller => :sessions, :action => 'destroy'}, :method => :delete%>
+<hr>
+Logged In As: <%=link_to session[:username], user_path(session[:id])%> 
+<br>
+<%= button_to 'log out', {:controller => :sessions, :action => 'destroy'}, :method => :delete%>

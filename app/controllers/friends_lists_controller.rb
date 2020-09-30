@@ -6,15 +6,16 @@ class FriendsListsController < ApplicationController
     end
 
     def create
-        @friend_new = FriendsList.new(fl_params)
-        @friend_new2 = FriendsList.new(user_id: fl_params[:user_id_2], user_id_2: fl_params[:user_id])
+
+        @friend_new = FriendsList.new(user_id: session[:id], user_id_2: fl_params[:user_id_2])
+        @friend_new2 = FriendsList.new(user_id: fl_params[:user_id_2], user_id_2: session[:id])
         if !@friend_new.valid? && !@friend_new2.valid?
             flash[:errors] = "Can not add, you are already friends"
-            redirect_to user_path(fl_params[:user_id])
+            redirect_to user_path(session[:id])
         else
             @friend_new.save
             @friend_new2.save
-        redirect_to user_path(fl_params[:user_id])
+        redirect_to user_path(session[:id])
         end
     end
 

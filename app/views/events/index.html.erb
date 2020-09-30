@@ -14,4 +14,12 @@
 <br>
 <hr>
 <%=link_to "Register an Event", new_event_path%>
+<br>
+<br>
+<hr>
+<%= button_to 'log out', {:controller => :sessions, :action => 'destroy'}, :method => :delete%>
+<hr>
+ Logged In As: <%=link_to session[:username], user_path(session[:id])%> 
+<br>
+<%= button_to 'log out', {:controller => :sessions, :action => 'destroy'}, :method => :delete%>
 

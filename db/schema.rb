@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_09_28_190408) do
     t.string "interest"
     t.string "bio"
     t.string "username"
-    t.string "password"
+    t.string "password_digest"
     t.integer "friend_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

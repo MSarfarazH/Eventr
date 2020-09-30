@@ -1,8 +1,9 @@
+
 <%=form_with model: @friend_new do |f|%>
-<%= f.label "Who are you?"%>
-<%=f.collection_select :user_id, @users, :id, :name%>
+<%# <%= f.label "Who are you?"%>
+<%# <%=f.collection_select :user_id, @users, :id, :name%> 
 <br>
-<br>
+<br> 
 <%= f.label "Name friend:"%>
 <%=f.collection_select :user_id_2, @users, :id, :name%>
 <br>
@@ -11,4 +12,9 @@
 <%end%>
 
 <%=flash[:errors]%>
+
+<hr>
+Logged In As: <%=link_to session[:username], user_path(session[:id])%> 
+<br>
+<%= button_to 'log out', {:controller => :sessions, :action => 'destroy'}, :method => :delete%>
 

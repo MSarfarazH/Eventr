@@ -1,4 +1,8 @@
-<%=form_with model: @user do |f|%>
+<%= form_with model: @user, :url => url_for(:controller => 'users', :action => 'create') do | f |%>
+<%=f.label :username%><br>
+<%=f.text_field :username%>
+<br>
+<br>
 <%=f.label :name%><br>
 <%=f.text_field :name%>
 <br>
@@ -11,6 +15,16 @@
 <%=f.text_area :bio%>
 <br>
 <br>
+<%= f.label :password %>
+<%= f.text_field :password %>
+<br/>
+<%= f.label :password_confirmation %>
+<%= f.text_field :password_confirmation %>
 <%=f.submit%>
 <%end%>
+
+<hr>
+Logged In As: <%=link_to session[:username], user_path(session[:id])%> 
+<br>
+<%= button_to 'log out', {:controller => :sessions, :action => 'destroy'}, :method => :delete%>
 
