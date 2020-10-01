@@ -17,11 +17,11 @@
 
 
 <% if session[:id] != @user.id %>
-<%= link_to 'Add Friend', new_friends_list_path%>
-<hr>
+    <%= link_to 'Add Friend', new_friends_list_path%>
+    <hr>
 <%else%>
-<%= link_to 'Edit Information', edit_user_path(@user) %><br>
-<hr>
+    <%=link_to 'Edit Information', edit_user_path(@user) %><br>
+  
 <%end%>
 <h2>Upcoming Events:</h2> 
 
@@ -53,3 +53,9 @@
 Logged In As: <%=link_to session[:username], user_path(session[:id])%> 
 <br>
 <%= button_to 'log out', {:controller => :sessions, :action => 'destroy'}, :method => :delete%>
+<hr>
+<% if session[:id] == @user.id %>
+<%=form_with model: @user, method: :delete do |f|%>
+<%=f.submit "Delete Profile"%>
+<%end%>
+<%end%>

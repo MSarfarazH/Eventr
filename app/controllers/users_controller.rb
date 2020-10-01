@@ -48,6 +48,12 @@ class UsersController < ApplicationController
         @user = User.find(session[:user])
     end
 
+    def destroy
+        @user = User.find(params[:id])
+        @user.destroy
+        redirect_to '/sign_in'
+    end
+
    
 
     private
