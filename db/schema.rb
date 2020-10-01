@@ -10,12 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_28_190408) do
+ActiveRecord::Schema.define(version: 2020_10_01_175953) do
 
-  create_table "chats", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "other_user_id"
-    t.string "text"
+  create_table "event_interests", force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "interest_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -39,6 +38,19 @@ ActiveRecord::Schema.define(version: 2020_09_28_190408) do
   create_table "friends_lists", force: :cascade do |t|
     t.integer "user_id"
     t.integer "user_id_2"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "interests", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_interests", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "interest_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

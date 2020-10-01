@@ -4,7 +4,7 @@ User.destroy_all
 Event.destroy_all
 
 
-mohammad = User.create(first_name:"Mohammad", last_name: "Hussain", age:25, bio:"Hello der", username: "moham", password: "password", img_url:"https://files.slack.com/files-pri/T02MD9XTF-F01BR2U3L3D/squarepic_20200930_13230538__01.jpg")
+mohammad = User.create(first_name:"Mohammed", last_name: "Hussain", age:25, bio:"Hello der", username: "moham", password: "password", img_url:"https://files.slack.com/files-pri/T02MD9XTF-F01BR2U3L3D/squarepic_20200930_13230538__01.jpg")
 mike = User.create(first_name: "Mike", last_name: "Archer", age: 29, bio: "1/4 stack developer specializing in one-to-many relationships", username: "marcher", password: "password", img_url: "https://ca.slack-edge.com/T02MD9XTF-U018WFHSU9Z-a1c399b623b9-512")
 
 john = User.create(first_name: "John", last_name: "Doe", age: 20, bio: "Test test test test", username: "johnboy27", password: "password", img_url: nil)
@@ -32,10 +32,20 @@ e1= Event.create(title: "Bonnaroo", time: Time.new(2021, 9, 2, 04, 00), details:
 e2 =Event.create(title: "Coachella", time: Time.new(2020, 10, 16, 8, 00), details: "The Coachella Valley Music and Arts Festival is an annual music and arts festival held at the Empire Polo Club in Indio, California, in the Coachella Valley in the Colorado Desert.", img_url: "https://consequenceofsound.net/wp-content/uploads/2019/06/Coachella-2020.png?w=427")
 e3 = Event.create(title: "TED Talk: A.I.", time: Time.new(2020, 12, 1, 12, 00), details: "Elon Musk explains the dangers of AI and why it will kill us all and take our jobs.", img_url: "https://i.ytimg.com/vi/H15uuDMqDK0/maxresdefault.jpg")
 
-
+i1 = Interest.create!(name:"Sports")
+i2 = Interest.create(name:"Dining")
+i3 = Interest.create(name:"Concerts")
+i4 = Interest.create(name:"Fitness")
+i5 = Interest.create(name:"Political")
+i6 = Interest.create(name:"Outdoors")
+i7 = Interest.create(name:"Networking")
+i8 = Interest.create(name:"Environmental")
+i9 = Interest.create(name:"Convention")
+i10 = Interest.create(name:"Professional")
+i11 = Interest.create(name:"Casual")
 
 # time: Time.new(2018, 12, 31, 16, 00)
                 # yr   m    d   h   min  h + 6
-
+puts "success"
 
 
