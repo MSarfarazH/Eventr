@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   get '/', to: 'users#welcome'
 
-  get '/log_in', to: 'sessions#sign_in'
+  get '/sign_in', to: 'sessions#sign_in'
   post '/sessions', to: 'sessions#create'
   delete '/sessions', to: 'sessions#destroy'
 
