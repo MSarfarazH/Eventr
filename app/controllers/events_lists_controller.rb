@@ -4,6 +4,7 @@ class EventsListsController < ApplicationController
         @el = EventsList.new
         @events = Event.all
         @users = User.all
+        @event = Event.find(session[:event])
     end
 
     def create

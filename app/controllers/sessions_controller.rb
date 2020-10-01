@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 
     def destroy
         session.clear
-        redirect_to '/sign_in'
+        redirect_to '/'
     end
 
 
@@ -28,4 +28,5 @@ class SessionsController < ApplicationController
     def user_params
         params.require(:user).permit(:username, :password)
     end
+
 end

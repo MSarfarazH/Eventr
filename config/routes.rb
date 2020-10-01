@@ -7,9 +7,12 @@ Rails.application.routes.draw do
 
   get '/', to: 'users#welcome'
 
-  get '/sign_in', to: 'sessions#sign_in'
+  get '/log_in', to: 'sessions#sign_in'
   post '/sessions', to: 'sessions#create'
   delete '/sessions', to: 'sessions#destroy'
-  
+
+  get '/users/:id/friends', to: 'users#friends'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
+

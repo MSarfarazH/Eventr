@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
-    before_action :authenticated?, only: [:index, :show]
+    before_action :authenticated?, only: [:index, :show, :edit, :destroy]
 
     def index
-        @users = User.all
+        @users = User.all.sort_by{|user|user.username}
     end
 
     def show
         @user = User.find(params[:id])
+        session[:user] = @user.id
     end
 
     def new
@@ -43,17 +44,22 @@ class UsersController < ApplicationController
         @events = Event.all
     end
 
+    def friends
+        @user = User.find(session[:user])
+    end
+
+   
 
     private
     def user_params
-        params.require(:user).permit(:name, :age, :bio, :username, :password)
+        params.require(:user).permit(:first_name, :last_name, :age, :bio, :username, :password, :img_url)
     end
 
     def authenticated?
         if session[:id] != nil
             @user = User.find(session[:id])
         else
-            redirect to '/sign_in'
+            redirect_to '/sign_in'
         end
     end
 

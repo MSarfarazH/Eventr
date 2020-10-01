@@ -24,11 +24,17 @@ class EventsController < ApplicationController
         end
     end
 
+    def destroy
+        @event = Event.find(params[:id])
+        @event.destroy
+        redirect_to events_path
+    end
+
 
     private
 
     def event_params
-        params.require(:event).permit(:title, :time, :details)
+        params.require(:event).permit(:title, :time, :details, :img_url)
     end
 
 

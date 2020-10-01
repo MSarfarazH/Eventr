@@ -17,23 +17,14 @@ class Event < ApplicationRecord
       end
 
        def self.past_events
-         self.all.select {|event| event.time.past? == true}
+         e = self.all.select {|event| event.time.past? == true}
+         e.sort_by{|event|event.time}
        end
 
        def self.future_events
-         self.all.select {|event| event.time.future? == true}
+         e = self.all.select {|event| event.time.future? == true}
+         e.sort_by{|event|event.time}
        end
 
-        # def self.happened_or_not
-        #   past = []
-        #   future = []
-        #   self.all.each do |event|
-        #     if event.time.past? == true
-        #       past << event
-        #     else
-        #       future << event
-        #     end
-        #   end
-        # end
-
+  
 end
