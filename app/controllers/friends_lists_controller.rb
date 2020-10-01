@@ -19,6 +19,13 @@ class FriendsListsController < ApplicationController
         end
     end
 
+    def destroy
+        @fl = FriendsList.find(user_id: sessions[:id], user_id_2: params[:user_id])
+        @fl2 = FriendsList.find(user_id: params[:user_id], user_id_2: sessions[:id])
+        @fl.destroy
+        @fl2.destroy
+    end
+
 
     private
 
