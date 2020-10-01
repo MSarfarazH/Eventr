@@ -1,0 +1,5 @@
+<%= form_with model: @ui do |f|%>
+<%=f.collection_select :event_id, @eventts, :id, :title%> 
+<%=f.collection_select :interest_id, @interests, :id, :name%>
+<%=f.submit%>
+<%end%>

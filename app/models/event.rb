@@ -1,6 +1,8 @@
 class Event < ApplicationRecord
     has_many :events_lists
     has_many :users, through: :events_lists
+    has_many :event_interests
+    has_many :interests, through: :event_interests
 
     validates(:title, :time, :details, {presence: true})
     validates :title, uniqueness: {scope: :time}
