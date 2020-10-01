@@ -1,8 +1,11 @@
 <h1 style="color:red"><%=flash[:errors]%></h1>
 
 <h2><%=@user.username%>'s Profile</h2>
-
+<%if @user.img_url != nil%>
 <%= link_to image_tag(@user.img_url, :size => '250x250')%>
+<%else%>
+<%= link_to image_tag("profile/blank.jpg", :size => '250x250')%>
+<%end%>
 <hr>
 
 <ul>

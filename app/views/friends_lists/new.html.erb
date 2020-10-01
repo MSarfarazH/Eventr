@@ -1,6 +1,7 @@
 
+<h1> Clicking "Confim" will add <%=@user.username%> to your friends list.</h1>
 <%=form_with model: @friend_new do |f|%>
-<%= f.submit 'Add Friend'%>
+<%= f.submit 'Confirm'%>
 <%end%>
 
 <%=flash[:errors]%>

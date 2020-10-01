@@ -3,6 +3,7 @@ class FriendsListsController < ApplicationController
     def new
         @friend_new = FriendsList.new
         @users = User.all
+        @user = User.find(session[:user])
     end
 
     def create
