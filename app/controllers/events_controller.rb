@@ -1,9 +1,13 @@
 class EventsController < ApplicationController
+    
+        def categories
+            @interests = Interest.all
+        end
 
     def index
         @events = Event.all
     end
-
+    
     def show
         @event = Event.find(params[:id])
         session[:event] = @event.id

@@ -16,11 +16,12 @@
 <br>
 
 
-Tags <br>
-<%@event.interest.each do |int|%>
-<%= int.name%><br>
+<h2>Tags</h2> 
+<%@event.interests.each do |int|%>
+<%= link_to int.name, interest_path(int)%>,
 <%end%>
-<%= link_to add tag, new_event_interests_path%><br>
+<br>
+<%= link_to 'add tag', new_event_interest_path%><br>
 
 
 

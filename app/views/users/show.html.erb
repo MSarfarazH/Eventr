@@ -14,9 +14,14 @@
     <li>Bio: <%= @user.bio %></li>    
 </ul>
 
+<h3> Interests </h3>
+<ul>
 <% @user.interests.each do |int|%>
-<%= int.name%><br>
+<li><%= link_to int.name, interest_path(int)%></li>
 <%end%>
+</ul>
+<%= link_to "Add Interest", new_user_interest_path%>
+<br>
 
 
 <% if session[:id] != @user.id %>
