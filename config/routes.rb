@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :events
   resources :users
 
-  get '/', to: 'users#welcome'
+  root 'users#welcome'
 
   get '/sign_in', to: 'sessions#sign_in'
   post '/sessions', to: 'sessions#create'

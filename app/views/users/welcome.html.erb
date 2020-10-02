@@ -1,9 +1,18 @@
-<h1> Welcome to Eventr! </h1>
 
-<%= link_to "Sign-In", sign_in_path%> // <%= link_to "Sign-Up", new_user_path%>
+<center>
+<%= link_to image_tag("https://fontmeme.com/temporary/af629267702d29a21c0f18f013f3d440.png", :size => '575x200')%>
+<br>
+<br>
+<br>
+<br>
+<h2><%= link_to "Sign-In", sign_in_path%> <br></h2>
+ or  <br><h2><%= link_to "Sign-Up", new_user_path%></h2>
 <br>
 <br>
 <h2>Upcoming Events:</h2> 
 <%@events.future_events.each do |event|%>
 <%=link_to event.title, event_path(event)%> - <%=event.time_format%><br>
 <%end%>
+</center>
+
+

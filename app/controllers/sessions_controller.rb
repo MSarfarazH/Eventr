@@ -1,10 +1,14 @@
 class SessionsController < ApplicationController
 
+   
+
     def sign_in
         @user = User.new
+        @disable_nav = true
     end
 
     def create
+        @disable_nav = true
         @user = User.find_by(username: params[:user][:username])
         if @user && @user.authenticate(params[:user][:password])
             session[:id] = @user.id

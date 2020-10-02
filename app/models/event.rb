@@ -28,5 +28,10 @@ class Event < ApplicationRecord
          e.sort_by{|event|event.time}
        end
 
+       def num_attend
+         t= self.users
+         t.count
+       end
+
   
 end

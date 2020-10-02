@@ -1,16 +1,21 @@
 <h1><%=@interest.name%></h1>
 <br>
 
-People with Similiar Interest
+<h2>People with Similiar Interest</h2>
+<br>
+<ul>
+<br>
 <%@interest.all_user_int_obj.each do |user_int_obj|%>
-<%=link_to user_int_obj.user.first_name, user_path(user_int_obj.user)%>
+<li><%=link_to user_int_obj.user.first_name, user_path(user_int_obj.user)%></li>
 <%end%>
+</ul>
 <br>
 
-Upcoming Events
+<h2>Upcoming Events</h2>
 <ul>
+<br>
 <%@interest.event_int.each do |e|%>
-<%=link_to e.event.title, event_path(e.event)%>
+<li><%=link_to e.event.title, event_path(e.event)%></li>
 <%end%>
 </ul>
 <br>
@@ -19,6 +24,6 @@ Upcoming Events
 <hr>
 Logged In As: <%=link_to session[:username], user_path(session[:id])%> 
 <br>
-<%= button_to 'log out', {:controller => :sessions, :action => 'destroy'}, :method => :delete%>
+<%= button_to 'log out', {:controller => :sessions, :action => 'destroy'}, :method => :delete, class: "btn btn-primary"%>
 <hr>
 

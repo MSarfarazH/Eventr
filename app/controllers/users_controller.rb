@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
     before_action :authenticated?, only: [:index, :show, :edit, :destroy]
 
+    
+
     def index
         @users = User.all.sort_by{|user|user.username}
     end
@@ -12,6 +14,7 @@ class UsersController < ApplicationController
 
     def new
         @user = User.new
+        @disable_nav = true
     end
 
     def create
@@ -42,6 +45,7 @@ class UsersController < ApplicationController
 
     def welcome
         @events = Event.all
+        @disable_nav = true
     end
 
     def friends

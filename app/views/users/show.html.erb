@@ -21,7 +21,9 @@
 <li><%= link_to int.name, interest_path(int)%></li>
 <%end%>
 </ul>
+<%if session[:id] == @user.id%>
 <%= link_to "Add Interest", new_user_interest_path%>
+<%end%>
 <br>
 
 
@@ -33,16 +35,15 @@
   
 <%end%>
 <h2>Upcoming Events:</h2> 
-
 <%= link_to 'See All Events', events_path%>
-<br>
+<ul>
 <br>
 <%@user.events.future_events.each do |event|%>
 <%= link_to image_tag(event.img_url, :size => '150x100')%><br>
 <%=link_to event.title, event_path(event)%><br>
 <%=event.time_format%><br>
-<hr>
 <%end%>
+</ul>
 
 <br>
 <h2>Past Events:</h2> 
@@ -62,10 +63,12 @@
 
 Logged In As: <%=link_to session[:username], user_path(session[:id])%> 
 <br>
-<%= button_to 'log out', {:controller => :sessions, :action => 'destroy'}, :method => :delete%>
+<%= button_to 'log out', {:controller => :sessions, :action => 'destroy'}, :method => :delete, class: "btn btn-primary"%>
 <hr>
 <% if session[:id] == @user.id %>
 <%=form_with model: @user, method: :delete do |f|%>
 <%=f.submit "Delete Profile"%>
 <%end%>
 <%end%>
+
+

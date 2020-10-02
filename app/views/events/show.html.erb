@@ -5,7 +5,9 @@
 <hr>
 <%= link_to image_tag(@event.img_url, :size => '300x200')%>
 <hr>
-<p><%=@event.time_format%>
+<%=@event.time_format%>
+<br>
+<%=link_to "RSVP", new_events_list_path%>
 <br>
 <br>
 <br>
@@ -22,8 +24,9 @@
 <%= link_to int.name, interest_path(int)%>,
 <%end%>
 <br>
+<br>
 <%= link_to 'add tag', new_event_interest_path%><br>
-
+<br>
 
 
 <h3>People Attending</h3>
@@ -33,7 +36,7 @@
 <br>
 <br>
 <br>
-<%=link_to "RSVP", new_events_list_path%>
+
 <%=form_with model: @event, method: :delete do |f|%>
 <%=f.submit "Cancel Event"%>
 <%end%>
@@ -45,5 +48,5 @@
 <hr>
 Logged In As: <%=link_to session[:username], user_path(session[:id])%> 
 <br>
-<%= button_to 'log out', {:controller => :sessions, :action => 'destroy'}, :method => :delete%>
+<%= button_to 'log out', {:controller => :sessions, :action => 'destroy'}, :method => :delete, class: "btn btn-primary"%>
 

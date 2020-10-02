@@ -4,8 +4,8 @@ User.destroy_all
 Event.destroy_all
 
 
-mohammad = User.create(first_name:"Mohammed", last_name: "Hussain", age:25, bio:"Hello der", username: "moham", password: "password", img_url:"https://files.slack.com/files-pri/T02MD9XTF-F01BR2U3L3D/squarepic_20200930_13230538__01.jpg")
-mike = User.create(first_name: "Mike", last_name: "Archer", age: 29, bio: "1/4 stack developer specializing in one-to-many relationships", username: "marcher", password: "password", img_url: "https://ca.slack-edge.com/T02MD9XTF-U018WFHSU9Z-a1c399b623b9-512")
+mohammad = User.create(first_name:"Mohammad", last_name: "Hussain", age:25, bio:"Howdy", username: "faraz", password: "password", img_url:"https://ca.slack-edge.com/T02MD9XTF-U0192CCT7HS-8f5418bd747a-512")
+mike = User.create(first_name: "Mike", last_name: "Archer", age: 29, bio: "1/4 stack developer specializing in creating links", username: "marcher", password: "password", img_url: "https://ca.slack-edge.com/T02MD9XTF-U018WFHSU9Z-a1c399b623b9-512")
 
 john = User.create(first_name: "John", last_name: "Doe", age: 20, bio: "Test test test test", username: "johnboy27", password: "password", img_url: nil)
 john2 = User.create(first_name: "Stephen", last_name: "Anderson", age: 26, bio: "Fastest coder this side of the Mississippi.", username: "theflash", password: "password", img_url: nil)

@@ -1,0 +1,26 @@
+@import "~bootstrap/scss/bootstrap";
+
+
+
+body {
+    // background-color:rgb(217, 255, 255);
+    background: rgb(174,238,185);
+    background: radial-gradient(circle, rgba(174,238,185,1) 0%, rgba(148,187,233,1) 100%);
+    margin: 25px 50px 75px 50px;
+}
+
+h1 {
+    text-shadow: 0px 0px 3px rgb(7, 21, 85);
+  }
+
+  ul {
+    list-style-type: square;
+    border-style: inset none none inset;
+    border-radius: 5px;
+
+  }
+
+  center {
+    text-align: center;
+  }
+ 
