@@ -1,10 +1,17 @@
-<h2>Upcoming Events:</h2> 
+<%=link_to "Events By Category", interests_path%>
+
+<h1>Upcoming Events:</h1> 
+<ul>
+<br>
 <%@events.future_events.each do |event|%>
-<%=link_to event.title, event_path(event)%> - <%=event.time_format%><br><br>
+<li><%=link_to event.title, event_path(event)%> - <%=event.time_format%><br>
+Users Also Attending: <%=event.num_attend%> </li>
+<br>
 <%end%>
+</ul>
 
 <br>
-<h2>Past Events:</h2> 
+<h1>Past Events:</h1> 
 <%@events.past_events.each do |event|%>
 <%=link_to event.title, event_path(event)%> - <%=event.time_format_2%><br><br>
 <%end%>
@@ -19,5 +26,5 @@
 <hr>
  Logged In As: <%=link_to session[:username], user_path(session[:id])%> 
 <br>
-<%= button_to 'log out', {:controller => :sessions, :action => 'destroy'}, :method => :delete%>
+<%= button_to 'log out', {:controller => :sessions, :action => 'destroy'}, :method => :delete, class: "btn btn-primary"%>
 

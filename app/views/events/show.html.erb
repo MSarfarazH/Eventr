@@ -1,10 +1,13 @@
 <h1 style="color:red"><%=flash[:errors]%></h1>
+<h1 style="color:red"><%=flash[:err]%></h1>
 
 <h1><%=@event.title%></h1>
 <hr>
 <%= link_to image_tag(@event.img_url, :size => '300x200')%>
 <hr>
-<p><%=@event.time_format%>
+<%=@event.time_format%>
+<br>
+<%=link_to "RSVP", new_events_list_path%>
 <br>
 <br>
 <br>
@@ -16,12 +19,14 @@
 <br>
 
 
-Tags <br>
-<%@event.interest.each do |int|%>
-<%= int.name%><br>
+<h2>Tags</h2> 
+<%@event.interests.each do |int|%>
+<%= link_to int.name, interest_path(int)%>,
 <%end%>
-<%= link_to add tag, new_event_interests_path%><br>
-
+<br>
+<br>
+<%= link_to 'add tag', new_event_interest_path%><br>
+<br>
 
 
 <h3>People Attending</h3>
@@ -31,7 +36,10 @@ Tags <br>
 <br>
 <br>
 <br>
-<%=link_to "RSVP", new_events_list_path%>
+
+<%=form_with model: @event, method: :delete do |f|%>
+<%=f.submit "Cancel Event"%>
+<%end%>
 <hr>
 <%= link_to 'See All Events', events_path%><br>
 <br>
@@ -40,5 +48,5 @@ Tags <br>
 <hr>
 Logged In As: <%=link_to session[:username], user_path(session[:id])%> 
 <br>
-<%= button_to 'log out', {:controller => :sessions, :action => 'destroy'}, :method => :delete%>
+<%= button_to 'log out', {:controller => :sessions, :action => 'destroy'}, :method => :delete, class: "btn btn-primary"%>
 

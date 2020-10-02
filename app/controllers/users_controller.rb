@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
     before_action :authenticated?, only: [:index, :show, :edit, :destroy]
 
+    
+
     def index
         @users = User.all.sort_by{|user|user.username}
     end
@@ -12,6 +14,7 @@ class UsersController < ApplicationController
 
     def new
         @user = User.new
+        @disable_nav = true
     end
 
     def create
@@ -30,7 +33,7 @@ class UsersController < ApplicationController
     end
 
     def update
-        @user = User.find(params[:id])
+        @user = User.find(session[:id])
         @user.update(user_params)
         if !@user.valid?
             flash[:errors]= @user.errors.full_messages
@@ -42,6 +45,7 @@ class UsersController < ApplicationController
 
     def welcome
         @events = Event.all
+        @disable_nav = true
     end
 
     def friends

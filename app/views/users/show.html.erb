@@ -1,4 +1,5 @@
 <h1 style="color:red"><%=flash[:errors]%></h1>
+<h1 style="color:red"><%=flash[:err]%></h1>
 
 <h2><%=@user.username%>'s Profile</h2>
 <%if @user.img_url != nil%>
@@ -14,9 +15,16 @@
     <li>Bio: <%= @user.bio %></li>    
 </ul>
 
+<h3> Interests </h3>
+<ul>
 <% @user.interests.each do |int|%>
-<%= int.name%><br>
+<li><%= link_to int.name, interest_path(int)%></li>
 <%end%>
+</ul>
+<%if session[:id] == @user.id%>
+<%= link_to "Add Interest", new_user_interest_path%>
+<%end%>
+<br>
 
 
 <% if session[:id] != @user.id %>
@@ -27,16 +35,15 @@
   
 <%end%>
 <h2>Upcoming Events:</h2> 
-
 <%= link_to 'See All Events', events_path%>
-<br>
+<ul>
 <br>
 <%@user.events.future_events.each do |event|%>
 <%= link_to image_tag(event.img_url, :size => '150x100')%><br>
 <%=link_to event.title, event_path(event)%><br>
 <%=event.time_format%><br>
-<hr>
 <%end%>
+</ul>
 
 <br>
 <h2>Past Events:</h2> 
@@ -46,6 +53,7 @@
 
 <br>
 <h2><%= link_to 'See Friends', '/users/see/friends'%></h2> 
+<%= link_to 'See All Users', users_path%>
 
 
 
@@ -55,10 +63,12 @@
 
 Logged In As: <%=link_to session[:username], user_path(session[:id])%> 
 <br>
-<%= button_to 'log out', {:controller => :sessions, :action => 'destroy'}, :method => :delete%>
+<%= button_to 'log out', {:controller => :sessions, :action => 'destroy'}, :method => :delete, class: "btn btn-primary"%>
 <hr>
 <% if session[:id] == @user.id %>
 <%=form_with model: @user, method: :delete do |f|%>
 <%=f.submit "Delete Profile"%>
 <%end%>
 <%end%>
+
+

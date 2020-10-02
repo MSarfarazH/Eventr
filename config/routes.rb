@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   resources :events
   resources :users
 
-  get '/', to: 'users#welcome'
+  root 'users#welcome'
 
-  get '/log_in', to: 'sessions#sign_in'
+  get '/sign_in', to: 'sessions#sign_in'
   post '/sessions', to: 'sessions#create'
   delete '/sessions', to: 'sessions#destroy'
 
@@ -18,6 +18,9 @@ Rails.application.routes.draw do
 
   post '/user_interests/new', to: 'user_interests#create'
   post '/event_interests/new', to: 'event_interests#create'
+  get '/events/:id/categories', to: 'events#categories'
+  patch '/users/', to: 'users#update'
+  put '/users/', to: 'users#update'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -3,6 +3,7 @@
 <%= link_to 'See All Events', events_path%><br>
 <br>
 
+
 <%@user.friends.each do |f|%>
 <%if f.img_url != nil%>
 <%= link_to image_tag(f.img_url, :size => '150x150')%>
@@ -22,4 +23,4 @@
 
 Logged In As: <%=link_to session[:username], user_path(session[:id])%> 
 <br>
-<%= button_to 'log out', {:controller => :sessions, :action => 'destroy'}, :method => :delete%>
+<%= button_to 'log out', {:controller => :sessions, :action => 'destroy'}, :method => :delete, class: "btn btn-primary"%>

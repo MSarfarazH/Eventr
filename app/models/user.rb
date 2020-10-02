@@ -1,11 +1,11 @@
 class User < ApplicationRecord
   has_secure_password
-  has_many :user_interests
+  has_many :user_interests, dependent: :destroy
   has_many :interests, through: :user_interests
 
-    has_many :events_lists
+    has_many :events_lists, dependent: :destroy
     has_many :events, through: :events_lists
-    has_and_belongs_to_many :friends,
+    has_and_belongs_to_many :friends, dependent: :destroy,
       class_name: "User",
       join_table: "friends_lists",
       association_foreign_key: "user_id_2"
