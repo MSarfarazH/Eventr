@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   post '/user_interests/new', to: 'user_interests#create'
   post '/event_interests/new', to: 'event_interests#create'
   get '/events/:id/categories', to: 'events#categories'
+  patch '/users/', to: 'users#update'
+  put '/users/', to: 'users#update'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

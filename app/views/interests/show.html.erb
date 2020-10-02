@@ -1,7 +1,7 @@
 <h1><%=@interest.name%></h1>
 <br>
 
-Associated Users
+People with Similiar Interest
 <%@interest.all_user_int_obj.each do |user_int_obj|%>
 <%=link_to user_int_obj.user.first_name, user_path(user_int_obj.user)%>
 <%end%>

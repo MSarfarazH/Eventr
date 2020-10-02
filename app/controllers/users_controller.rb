@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     end
 
     def update
-        @user = User.find(params[:id])
+        @user = User.find(session[:id])
         @user.update(user_params)
         if !@user.valid?
             flash[:errors]= @user.errors.full_messages

@@ -7,8 +7,14 @@ class EventInterestsController < ApplicationController
     end
 
     def create
-        new_event_interest = EventInterest.create(event_id: session[:event], interest_id: params[:interest_id])
-        redirect_to event_path(session[:event])
+        new_event_interest = EventInterest.new(event_id: session[:event], interest_id: params[:interest_id])
+        if !new_event_interest.valid?
+            flash[:err] = "Tag already assigned"
+            redirect_to event_path(session[:event])
+        else
+            new_event_interest.save
+            redirect_to event_path(session[:event])
+        end
     end
 
 end

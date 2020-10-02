@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
-    has_many :events_lists
+    has_many :events_lists, dependent: :destroy
     has_many :users, through: :events_lists
-    has_many :event_interests
+    has_many :event_interests, dependent: :destroy
     has_many :interests, through: :event_interests
 
     validates(:title, :time, :details, {presence: true})
