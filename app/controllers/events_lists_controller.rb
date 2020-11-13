@@ -25,3 +25,6 @@ class EventsListsController < ApplicationController
     end
 
 end
+
+
+
