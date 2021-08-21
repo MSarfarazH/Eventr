@@ -1,24 +1,55 @@
-# README
+# Eventr
+ 
+  ## Licensing:
+  [![license](https://img.shields.io/badge/license-None-blue)](https://shields.io)
+  ========================
+  ## Table of Contents 
+  - [Description](#desc)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+  - [Installation](#reqs)
 
-Things you may want to cover:
+  - [Usage](#usage)
 
-* Ruby version
+  - [License](#License)
 
-* System dependencies
+  - [Additional Info](#additional-info)
 
-* Configuration
 
-* Database creation
+  ## Description:
+  An app that lets you browse for current events around you and create events as well
 
-* Database initialization
+  _________________________
 
-* How to run the test suite
+  
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+  ## Installation:
+  A Web Browser
 
-* ...
+  _________________________
+
+  
+
+
+  ## Usage:
+  To help event organisers and attendees manage events around them
+
+  _________________________
+
+  
+
+
+  ## License:
+  None
+
+  _________________________
+
+  
+
+
+  ## Contact Info:
+   - Github: [msarfarazh](https://github.com/msarfarazh)
+  - Email: m.s.hussain@outlook.com
+
+  ______________________________
+
